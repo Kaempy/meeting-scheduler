@@ -26,13 +26,13 @@ const SuccessModal = ({ onClose }: { onClose: () => void }) => {
           text="Close"
           type="button"
           onClick={onClose}
-          className="text-primary w-full transform border-none bg-slate-200 px-4 py-2 tracking-wide transition-colors duration-300 hover:border-none hover:bg-slate-300 focus:outline-none focus:ring focus:ring-opacity-50 dark:bg-slate-400 dark:text-gray-900 dark:hover:bg-slate-500"
+          className="w-full transform border-none bg-slate-200 px-4 py-2 tracking-wide text-primary transition-colors duration-300 hover:border-none hover:bg-slate-300 focus:outline-none focus:ring focus:ring-opacity-50 dark:bg-slate-400 dark:text-gray-900 dark:hover:bg-slate-500"
         />
         <Button
           text="Meeting Details"
           type="button"
           onClick={onClose}
-          className="bg-primary dark:text-primary hover:bg-primary/90 w-full transform border-none px-4 py-2 tracking-wide text-white transition-colors duration-300 hover:border-none hover:bg-slate-600 focus:outline-none focus:ring focus:ring-opacity-50 dark:bg-slate-800 dark:hover:bg-slate-950"
+          className="w-full transform border-none bg-primary px-4 py-2 tracking-wide text-white transition-colors duration-300 hover:border-none hover:bg-primary/90 hover:bg-slate-600 focus:outline-none focus:ring focus:ring-opacity-50 dark:bg-slate-800 dark:text-primary dark:hover:bg-slate-950"
         />
       </div>
     </Card>

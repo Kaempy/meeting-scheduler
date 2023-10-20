@@ -45,7 +45,7 @@ const Page = () => {
               <div className="mx-auto flex justify-center">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  className="text-primary h-8 w-8 dark:hover:text-[#646cff75] md:h-10 md:w-10"
+                  className="h-8 w-8 text-primary dark:hover:text-[#646cff75] md:h-10 md:w-10"
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
@@ -68,13 +68,13 @@ const Page = () => {
                         text="Prev"
                         type="button"
                         onClick={prev}
-                        className="bg-primary dark:hover:bg-primary w-max transform px-4 py-2 tracking-wide text-white transition-colors duration-300 focus:outline-none focus:ring focus:ring-opacity-50 dark:bg-[#646cff75]"
+                        className="w-max transform bg-primary px-4 py-2 tracking-wide text-white transition-colors duration-300 focus:outline-none focus:ring focus:ring-opacity-50 dark:bg-[#646cff75] dark:hover:bg-primary"
                       />
                     )}
                     <Button
                       text={isLastStep ? 'Done' : 'Next'}
                       type="submit"
-                      className="bg-primary dark:hover:bg-primary w-max transform px-4 py-2 tracking-wide text-white transition-colors duration-300 focus:outline-none focus:ring focus:ring-opacity-50 dark:bg-[#646cff75]"
+                      className="w-max transform bg-primary px-4 py-2 tracking-wide text-white transition-colors duration-300 focus:outline-none focus:ring focus:ring-opacity-50 dark:bg-[#646cff75] dark:hover:bg-primary"
                     />
                   </div>
                 </form>
