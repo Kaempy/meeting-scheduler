@@ -7,8 +7,8 @@ export default {
     extend: {
       colors: { primary: '#646cff' },
       backgroundImage: {
-        light: "url('img/ai_meeting.jpeg')",
-        dark: "url('img/ai_meeting2.jpeg')",
+        light: "url('/img/ai_meeting.jpeg')",
+        dark: "url('/img/ai_meeting2.jpeg')",
       },
     },
   },
