@@ -1,8 +1,9 @@
 import {
   ReactNode,
   createContext,
-  useContext,
+  useCallback,
   useEffect,
+  useMemo,
   useState,
 } from 'react';
 
@@ -15,16 +16,6 @@ interface ThemeContextType {
 
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 
-const useTheme = () => {
-  const themeCtx = useContext(ThemeContext);
-
-  if (!themeCtx) {
-    throw new Error('useTheme must be used within a ThemeContextProvider');
-  }
-
-  return themeCtx;
-};
-
 const ThemeContextProvider = ({ children }: { children: ReactNode }) => {
   const storedTheme = localStorage.getItem('theme') as Theme;
   const prefersDarkMode = window.matchMedia('(prefers-color-scheme: dark)');
@@ -32,7 +23,7 @@ const ThemeContextProvider = ({ children }: { children: ReactNode }) => {
 
   const [theme, setTheme] = useState<Theme>(storedTheme || 'system');
 
-  const onWindowMatch = () => {
+  const onWindowMatch = useCallback(() => {
     if (
       localStorage.theme === 'dark' ||
       (!('theme' in localStorage) && prefersDarkMode.matches)
@@ -41,11 +32,11 @@ const ThemeContextProvider = ({ children }: { children: ReactNode }) => {
     } else {
       rootElement.classList.remove('dark');
     }
-  };
+  }, [prefersDarkMode.matches, rootElement.classList]);
 
   useEffect(() => {
     onWindowMatch();
-  }, []);
+  }, [onWindowMatch]);
 
   useEffect(() => {
     switch (theme) {
@@ -62,7 +53,7 @@ const ThemeContextProvider = ({ children }: { children: ReactNode }) => {
         onWindowMatch();
         break;
     }
-  }, [theme]);
+  }, [onWindowMatch, rootElement.classList, theme]);
 
   const themeToggle = (newTheme: Theme) => {
     setTheme(newTheme);
@@ -80,13 +71,15 @@ const ThemeContextProvider = ({ children }: { children: ReactNode }) => {
     return () => {
       prefersDarkMode.removeEventListener('change', listener);
     };
-  }, []);
+  }, [onWindowMatch, prefersDarkMode]);
 
-  const value = { theme, themeToggle };
+  const value = useMemo(() => {
+    return { theme, themeToggle };
+  }, [theme]);
 
   return (
     <ThemeContext.Provider value={value}>{children}</ThemeContext.Provider>
   );
 };
 
-export { ThemeContextProvider, useTheme };
+export { ThemeContext, ThemeContextProvider };

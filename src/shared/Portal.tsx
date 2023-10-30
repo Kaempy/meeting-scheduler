@@ -1,3 +1,5 @@
+/* eslint-disable jsx-a11y/click-events-have-key-events */
+/* eslint-disable jsx-a11y/no-static-element-interactions */
 import { ReactNode } from 'react';
 import { createPortal } from 'react-dom';
 
@@ -10,7 +12,7 @@ const Overlay = ({
 }) => {
   return (
     <div
-      className="fixed left-0 top-0 flex h-screen w-full items-center justify-center bg-black/30 backdrop-blur-[2px]"
+      className="fixed left-0 top-0 flex h-screen w-full items-center justify-center bg-black/30"
       onClick={onClose}
     >
       {children}

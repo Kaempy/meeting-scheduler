@@ -1,13 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200;12..96,300;12..96,400&family=Fira+Sans:wght@400;500;600&family=Libre+Baskerville:wght@400;700&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-@font-face {
-  font-family: 'Grotesk';
-  src: url('./fonts/Tomato_Grotesk/TomatoGrotesk-Bold.otf');
-  font-weight: normal;
-  font-style: normal;
-}
 
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
@@ -22,6 +16,48 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
+  --font-baskerville: 'Libre Baskerville', serif;
+  --font-fira: 'Fira Sans', sans-serif;
+  --font-bricolage: 'Bricolage Grotesque', sans-serif;
+}
+#root {
+  margin: 0 auto;
+}
+
+.details::-webkit-scrollbar {
+  width: 10px;
+}
+.details::-webkit-scrollbar-thumb {
+  background: #7f1ac2b2;
+  border-radius: 5px;
+}
+.details::-webkit-scrollbar-thumb:hover {
+  background: #911be0b2;
+}
+.details::-webkit-scrollbar-track {
+  background: transparent;
+  border-radius: 5px;
+}
+.details::-webkit-scrollbar-button {
+  width: 10px;
+}
+
+.dark .details::-webkit-scrollbar {
+  width: 10px;
+}
+.dark .details::-webkit-scrollbar-thumb {
+  background: #646cff7d;
+  border-radius: 5px;
+}
+.dark .details::-webkit-scrollbar-thumb:hover {
+  background: #646cffb2;
+}
+.dark .details::-webkit-scrollbar-track {
+  background: #020617;
+  border-radius: 5px;
+}
+.dark .details::-webkit-scrollbar-button {
+  width: 10px;
 }
 
 a {

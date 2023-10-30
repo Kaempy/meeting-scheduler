@@ -1,16 +1,20 @@
+import Popups from '@components/Popups';
+import { StoreContextProvider } from '@context/store-context';
 import { lazy } from 'react';
-import './App.css';
 import { ThemeContextProvider } from './context/theme-context';
 
-const HomePage = lazy(async () => await import('./components/page'));
-const Layout = lazy(async () => await import('./layout'));
+const HomePage = lazy(() => import('./components/page'));
+const Layout = lazy(() => import('./layout'));
 
 const App = () => {
   return (
     <ThemeContextProvider>
-      <Layout>
-        <HomePage />
-      </Layout>
+      <StoreContextProvider>
+        <Layout>
+          <Popups />
+          <HomePage />
+        </Layout>
+      </StoreContextProvider>
     </ThemeContextProvider>
   );
 };

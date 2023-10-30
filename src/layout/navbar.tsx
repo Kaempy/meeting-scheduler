@@ -1,5 +1,5 @@
-import { useTheme } from '../context/theme-context';
-import { MoonIcon, SunIcon } from '../icons';
+import { useTheme } from '@hooks/useCtx';
+import { MoonIcon, SunIcon } from '@icons/index';
 
 const Navbar = () => {
   const { theme, themeToggle } = useTheme();

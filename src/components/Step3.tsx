@@ -1,8 +1,14 @@
+import { SlideTitle } from '@components/index';
 import { Fragment } from 'react';
-import { SlideTitle } from '.';
+import { useFormContext } from 'react-hook-form';
 import { Input } from './FormElement';
 
 const Step3 = () => {
+  const {
+    register,
+    formState: { errors },
+  } = useFormContext();
+
   return (
     <Fragment>
       <SlideTitle title="Meeting Details" />
@@ -13,6 +19,8 @@ const Step3 = () => {
           type: 'text',
           label: 'Meeting Type',
           placeholder: 'Interview',
+          register: { ...register('type') },
+          error: errors.type?.message as string,
         }}
       />
       <Input
@@ -22,6 +30,8 @@ const Step3 = () => {
           type: 'text',
           label: 'Description',
           placeholder: 'Write a short Description of the meeting.',
+          register: { ...register('desc') },
+          error: errors.desc?.message as string,
         }}
       />
     </Fragment>

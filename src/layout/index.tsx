@@ -1,5 +1,5 @@
-import { type FC, type ReactNode } from 'react';
-import { useTheme } from '../context/theme-context';
+import { useTheme } from '@hooks/useCtx';
+import { Fragment, type FC, type ReactNode } from 'react';
 import Footer from './footer';
 import Navbar from './navbar';
 
@@ -11,7 +11,7 @@ const Layout: FC<Props> = ({ children }) => {
   const { theme } = useTheme();
 
   return (
-    <>
+    <Fragment>
       <Navbar />
       <main
         className={`w-full
@@ -24,7 +24,7 @@ const Layout: FC<Props> = ({ children }) => {
         {children}
       </main>
       <Footer />
-    </>
+    </Fragment>
   );
 };
 
